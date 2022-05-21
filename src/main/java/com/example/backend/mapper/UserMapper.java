@@ -26,4 +26,6 @@ public interface UserMapper {
     Integer selectTotal();
     @Update("UPDATE user set password=\"123456\" where user_id=#{user_id};")
     Integer resetPass(Integer user_id);
+    @Select("select * from user where user_id=#{user_id}")
+    User getById(Integer user_id);
 }

@@ -4,6 +4,7 @@ import com.example.backend.entity.Room;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface RoomMapper {
@@ -16,4 +17,7 @@ public interface RoomMapper {
 
     @Delete("delete from room where room_id = #{room_id}")
     Integer deleteById(@Param("room_id") Integer room_id);
+
+    @Select("select room_id,room_number from room")
+    List<Room> findNumber();
 }

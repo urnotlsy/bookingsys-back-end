@@ -3,6 +3,7 @@ package com.example.backend.controller;
 import com.example.backend.entity.User;
 import com.example.backend.mapper.UserMapper;
 import com.example.backend.service.UserService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,6 +41,10 @@ public class UserController {
         return userMapper.findAll();
     }
 
+    @GetMapping("/getById")
+    public User getById(@RequestParam Integer user_id){
+        return userMapper.getById(user_id);
+    }
     //删除user
     @DeleteMapping("/{user_id}")
     public Integer delete(@PathVariable Integer user_id){

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.backend.mapper.OrderMapper">
+    <insert id="insert">
+        INSERT into bookingsys.order(user_id,room_id,theme,
+            flag,note,order_date,start_time,end_time)
+            VALUES (#{user_id},#{room_id},#{theme},#{flag},
+            #{note},#{order_date},#{start_time},#{end_time})
+    </insert>
+    <resultMap id="OrderListInfoMap" type="com.example.backend.entity.OrderListInfo">
+        <id column="ORDER_ID" property="order_id"/>
+        <result column="ROOM_ID" property="room_id"/>
+        <result column="USER_ID" property="user_id"/>
+        <result column="THEME" property="theme"/>
+        <result column="FLAG" property="flag"/>
+        <result column="NOTE" property="note"/>
+        <result column="ORDER_DATE" property="order_date"/>
+        <result column="START_TIME" property="start_time"/>
+        <result column="END_TIME" property="end_time"/>
+        <result column="STATE" property="state"/>
+        <association property="user" javaType="com.example.backend.entity.User">
+            <id column="USER_ID" property="user_id"/>
+            <result column="name" property="name"/>
+            <result column="PHONE" property="phone"/>
+            <result column="PASSWORD" property="password"/>
+            <result column="ROLE" property="role"/>
+        </association>
+        <association property="room" javaType="com.example.backend.entity.Room">
+            <id column="ROOM_ID" property="room_id"/>
+            <result column="CAPACITY" property="capacity"/>
+            <result column="ROOM_NUMBER" property="room_number"/>
+            <result column="MEDIA" property="media"/>
+            <result column="INTRO" property="intro"/>
+        </association>
+    </resultMap>
+    <select id="findAll" resultMap="OrderListInfoMap">
+        select *
+        from user,bookingsys.order,room
+        where user.user_id=bookingsys.order.user_id
+          and bookingsys.order.room_id=room.room_id;
+    </select>
+    <select id="getByRoom" resultMap="OrderListInfoMap">
+        select *
+        from user,bookingsys.order,room
+        where user.user_id=bookingsys.order.user_id
+            and bookingsys.order.room_id=room.room_id
+            and #{room_id}=room.room_id
+            and (bookingsys.order.state=1 or bookingsys.order.state=2);
+    </select>
+</mapper>

@@ -7,9 +7,6 @@
             <if test="name != null">
                 name = #{name},
             </if>
-<!--            <if test="user_number != null">-->
-<!--                user_number = #{user_number},-->
-<!--            </if>-->
             <if test="phone != null">
                 phone = #{phone},
             </if>
