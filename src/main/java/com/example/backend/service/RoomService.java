@@ -23,9 +23,8 @@ public class RoomService {
     public List<Map<String,Object>> findNumber() {
         List<Room> rooms = roomMapper.findNumber();
         List<Map<String,Object>> res = new ArrayList<>();
-        for (int i=0;i<rooms.size();i++){
+        for (Room tmp : rooms){
             Map<String,Object> value = new HashMap<>();
-            Room tmp = rooms.get(i);
             value.put("value",tmp.getRoom_id());
             value.put("label",tmp.getRoom_number());
             res.add(value);

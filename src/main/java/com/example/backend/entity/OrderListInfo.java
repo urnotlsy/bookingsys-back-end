@@ -2,6 +2,8 @@ package com.example.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import org.springframework.boot.jackson.JsonComponent;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
 import java.sql.Time;
@@ -15,7 +17,7 @@ public class OrderListInfo {
     private String theme;               //会议主题
     private Boolean flag;               //是否涉及意识形态
     private String note;                //预约时填写的备注
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date order_date;
     @JsonFormat(pattern="HH:mm:ss")
     private Time start_time;
@@ -26,3 +28,5 @@ public class OrderListInfo {
     private Room room;
     private User user;
 }
+
+
