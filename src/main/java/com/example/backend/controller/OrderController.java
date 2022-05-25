@@ -3,7 +3,6 @@ package com.example.backend.controller;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
 import com.example.backend.entity.Order;
-import com.example.backend.entity.OrderListInfo;
 import com.example.backend.mapper.OrderMapper;
 import com.example.backend.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.net.URLEncoder;
-import java.sql.Date;
 import java.util.List;
 import java.util.Map;
 

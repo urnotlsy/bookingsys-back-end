@@ -1,7 +1,7 @@
 package com.example.backend.service;
 
 import com.example.backend.entity.Order;
-import com.example.backend.entity.OrderListInfo;
+import com.example.backend.dto.OrderDto;
 import com.example.backend.mapper.OrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +20,8 @@ public class OrderService {
 
     public List<Map<String, Object>> getOrderByRoom(Integer room_id) {
         List<Map<String, Object>> res = new ArrayList<>();
-        List<OrderListInfo> data=orderMapper.getByRoom(room_id);
-        for(OrderListInfo tmp : data){
+        List<OrderDto> data=orderMapper.getByRoom(room_id);
+        for(OrderDto tmp : data){
             Map<String, Object> value = new HashMap<>();
             value.put("id",tmp.getOrder_id());
             value.put("title",tmp.getTheme());
@@ -61,9 +61,9 @@ public class OrderService {
     }
 
     public List<Map<String,Object>> findAll() {
-        List<OrderListInfo> orderListInfo=orderMapper.findAll();
+        List<OrderDto> orderListInfo=orderMapper.findAll();
         List<Map<String,Object>> res = new ArrayList<>();
-        for (OrderListInfo tmp: orderListInfo){
+        for (OrderDto tmp: orderListInfo){
             Map<String,Object> value = new HashMap<>();
             value.put("order_id",tmp.getOrder_id());
             value.put("user_id",tmp.getUser_id());

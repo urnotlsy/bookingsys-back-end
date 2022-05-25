@@ -1,16 +1,16 @@
-package com.example.backend.entity;
+package com.example.backend.dto;
 
+import com.example.backend.entity.Room;
+import com.example.backend.entity.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.springframework.boot.jackson.JsonComponent;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
 import java.sql.Time;
-import java.sql.Timestamp;
 
 @Data
-public class OrderListInfo {
+public class OrderDto {
     private Integer order_id;
     private Integer room_id;
     private Integer user_id;

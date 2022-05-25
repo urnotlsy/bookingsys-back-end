@@ -7,7 +7,7 @@
             VALUES (#{user_id},#{room_id},#{theme},#{flag},
             #{note},#{order_date},#{start_time},#{end_time})
     </insert>
-    <resultMap id="OrderListInfoMap" type="com.example.backend.entity.OrderListInfo">
+    <resultMap id="OrderListInfoMap" type="com.example.backend.dto.OrderDto">
         <id column="ORDER_ID" property="order_id"/>
         <result column="ROOM_ID" property="room_id"/>
         <result column="USER_ID" property="user_id"/>

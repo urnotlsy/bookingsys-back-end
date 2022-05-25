@@ -29,4 +29,5 @@ public interface UserMapper {
     Integer resetPass(Integer user_id);
     @Select("select * from user where user_id=#{user_id}")
     User getById(Integer user_id);
+
 }

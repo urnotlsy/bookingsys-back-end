@@ -1,7 +1,7 @@
 package com.example.backend.mapper;
 
 import com.example.backend.entity.Order;
-import com.example.backend.entity.OrderListInfo;
+import com.example.backend.dto.OrderDto;
 import org.apache.ibatis.annotations.*;
 
 import java.sql.Date;
@@ -12,8 +12,8 @@ public interface OrderMapper {
 
     int insert(Order order);
 
-    List<OrderListInfo> getByRoom(Integer room_id);
-    List<OrderListInfo> findAll();
+    List<OrderDto> getByRoom(Integer room_id);
+    List<OrderDto> findAll();
     @Update("update bookingsys.order set record=#{record} where order_id=#{order_id}")
     int updateRecord(Integer order_id, String record);
     @Delete("delete from bookingsys.order where order_id=#{order_id}")
