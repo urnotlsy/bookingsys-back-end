@@ -27,6 +27,8 @@ public class LoginController {
         if(pass1.equals(pass2)){
             //添加token
             userDto.setToken(JwtUtil.createToken(target.getRole()));
+            //权限角色
+            userDto.setRole(target.getRole());
             return userDto;
         }
         return null;

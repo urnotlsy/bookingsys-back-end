@@ -7,6 +7,7 @@ import java.util.UUID;
 
 public class JwtUtil {
     private static long time = 1000*60*60*2;//有效期2小时
+    //private static long time = 1000*5;
     private static String signature = "sseAdmin";
 
     public static String createToken(String role){
